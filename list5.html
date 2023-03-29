@@ -1,0 +1,56 @@
+<script src="react.development.js"></script>
+<script src="babel.min.js"></script>
+<script src="react-dom.development.js"></script>
+<div id="root"></div>
+<style>
+
+</style>
+
+
+
+<script type="text/babel">
+
+    function App() {
+        const questions = [
+            {
+                'que': 'which hook we use to get the reference?',
+                'options': ['useState', 'useEffect', 'useMemo', 'useRef'],
+                'type': 'S',
+            },
+            {
+                'que': 'Below which are block level element?',
+                'options': ['div', 'span', 'h1', 'p'],
+                'type': 'M',
+            },
+            {
+                'que': 'which hook we use to get the reference?',
+                'options': ['useState', 'useEffect', 'useMemo', 'useRef'],
+                'type': 'S',
+            },
+            {
+                'que': 'Below which are block level element?',
+                'options': ['div', 'span', 'h1', 'p'],
+                'type': 'M',
+            },
+        ]
+        return <div>
+            {
+                questions.map((obj, ind) => {
+                    const { que, options, type } = obj
+                    return <div>
+                        <h1>{ind + 1}: {que}</h1>
+                        {
+                            options.map((v, i) => {
+                                return <p key={ind}><input name={ind} type={type == 'S' ? 'radio' : 'checkbox'} />   {v}</p>
+                            })
+                        }
+                    </div>
+                })
+            }
+            <p><button>Submit</button></p>
+        </div>
+    }
+
+    var container = ReactDOM.createRoot(document.getElementById('root'))
+    container.render(<App />)
+</script>

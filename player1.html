@@ -1,0 +1,24 @@
+<script src="react.development.js"></script>
+<script src="babel.min.js"></script>
+<script src="react-dom.development.js"></script>
+<div id="root"></div>
+<style>
+
+</style>
+<script type="text/babel">
+
+    function Player(obj) {
+        const { name, city, age, children } = obj
+        return <h3>Hi, this is {name} from {city} and im {age} old.I scored {children}</h3>
+    }
+
+    function App() {
+        return <div>
+            <Player name='Vikram' city='dhanbad' age='28'> 1200</Player>
+            <Player name='Ram' city='Hybad' age='29'> 1100</Player>
+        </div>
+    }
+    var container = ReactDOM.createRoot(document.getElementById('root'))
+    container.render(<App />)
+
+</script>

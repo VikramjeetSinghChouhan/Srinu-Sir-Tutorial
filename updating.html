@@ -1,0 +1,58 @@
+<script src="react.development.js"></script>
+<script src="babel.min.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="axios.min.js"></script>
+
+<div id="root"></div>
+<style>
+
+</style>
+
+<script type="text/babel">
+
+    const App = () => {
+        const [count, setCount] = React.useState(0)
+        const [name, setName] = React.useState('Sachin')
+
+        React.useEffect(() => {
+            console.log('component mounted')
+        }, [])
+
+        React.useEffect(() => {
+            if (count != 0) {
+                console.log('after count updating')
+            }
+        }, [count])
+
+        React.useEffect(() => {
+            if (name != 'Sachin') {
+                console.log('after name updating')
+            }
+        }, [name])
+
+
+
+
+        const fnChange = () => {
+            setCount(count + 1)
+        }
+        const fnNameChange = () => {
+            setName('Dhoni')
+        }
+        return <div>
+            <h1>Hello : {name}</h1>
+            <button onClick={fnNameChange}>Name: </button>
+
+            <h1>Increment : {count}</h1>
+            <button onClick={fnChange}>increment</button>
+        </div>
+    }
+
+
+    //container reference 
+    var container = ReactDOM.createRoot(document.getElementById('root'))
+
+    // render content inside the container 
+
+    container.render(<App />)
+</script>

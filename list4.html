@@ -1,0 +1,57 @@
+<script src="react.development.js"></script>
+<script src="babel.min.js"></script>
+<script src="react-dom.development.js"></script>
+<div id="root"></div>
+<style>
+
+</style>
+
+
+
+<script type="text/babel">
+    const List = ({ data, title }) => {
+        // const { data, title } = props
+        return <div>
+            <h1>{title}</h1>
+            <ol>
+                {
+                    data.map((v, i) => {
+                        return <li key={i}>{v}</li>
+                    })
+                }
+            </ol>
+        </div>
+    }
+
+    function App() {
+        const myData = [
+            {
+                data: ['Sachin', 'Dhoni', 'Lohli', 'uv', 'vvs'],
+                title: 'Players'
+            },
+            {
+                data: ['SRK', 'NTR', 'AB', 'AK', 'RAJNI'],
+                title: 'Heros'
+            },
+            {
+                data: ['s1', 's2', 's3', 's4', 's5'],
+                title: 'Student'
+            },
+        ]
+
+        return <div>
+            {
+                myData.map((obj, i) => {
+                    const { data, title } = obj;
+                    return <List key={i} data={data} title={title} />
+                })
+            }
+
+
+
+        </div>
+    }
+
+    var container = ReactDOM.createRoot(document.getElementById('root'))
+    container.render(<App />)
+</script>

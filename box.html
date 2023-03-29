@@ -1,0 +1,32 @@
+<script src="react.development.js"></script>
+<script src="babel.min.js"></script>
+<script src="react-dom.development.js"></script>
+
+<div id="root"></div>
+
+<style>
+    .box {
+        border: 1px solid black;
+        height: 200px;
+        width: 200px;
+        display: inline-block;
+        background: yellowgreen;
+        border-radius: 10%;
+    }
+</style>
+
+<script type="text/babel">
+    function App() {
+        return <div>
+            <div id='div1' className="box"></div>
+            <div id='div2' className="box"></div>
+            <div id='div3' className="box"></div>
+
+        </div>
+
+    }
+    var container = ReactDOM.createRoot(document.getElementById('root'))
+    container.render(<App />)
+
+
+</script>

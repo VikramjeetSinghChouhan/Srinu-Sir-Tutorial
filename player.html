@@ -1,0 +1,47 @@
+<script src="react.development.js"></script>
+<script src="babel.min.js"></script>
+<script src="react-dom.development.js"></script>
+
+<div id="root"></div>
+<style>
+    div {
+        border: 1px solid black;
+        background: #0b3881;
+        color: aliceblue;
+        width: 600px;
+        height: 400px;
+        font-family: arial;
+    }
+
+    h1 {
+        text-align: center;
+    }
+</style>
+
+<script type="text/babel">
+
+    function Player(obj) {
+        return <h3>HI, I am {obj.name}, from {obj.city} and i am {obj.age} yeras old.I like to play {obj.sports} and i scored{obj.children}</h3>
+
+
+    }
+
+
+
+    function App() {
+        return <div>
+            <h1>Player Info</h1>
+            <ol>
+                <li><Player name='Vikram' city='Dhanbad' age='28' sports='cricket'> 1200</Player> </li>
+                <li><Player name='Subham' city='Delhi' age='29' sports='cricket'> 1300</Player></li>
+                <li><Player name='Raman' city='Ranchi' age='27' sports='Basket Ball'> 200</Player></li>
+
+            </ol>
+        </div>
+    }
+
+    var container = ReactDOM.createRoot(document.getElementById('root'));
+    container.render(<App />)
+
+
+</script>

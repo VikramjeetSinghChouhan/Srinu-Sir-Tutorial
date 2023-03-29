@@ -1,0 +1,26 @@
+<script src="react.development.js"></script>
+<script src="babel.min.js"></script>
+<script src="react-dom.development.js"></script>
+<div id="root"></div>
+<style>
+
+</style>
+
+
+
+<script type="text/babel">
+
+    function App() {
+        const players = ['Sachin', 'Dhoni', 'Lohli', 'uv']
+        return <ol>
+            {
+                players.map((v) => {
+                    return <li>{v}</li>
+                })
+            }
+        </ol>
+    }
+
+    var container = ReactDOM.createRoot(document.getElementById('root'))
+    container.render(<App />)
+</script>

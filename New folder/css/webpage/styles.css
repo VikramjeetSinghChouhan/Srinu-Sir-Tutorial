@@ -1,0 +1,40 @@
+#header{
+    background: yellow;
+    font-size: 50px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+body{
+    margin: 0;
+}
+.menu{
+    text-align: right;
+    background: #e9ead9;
+    line-height: 40px;
+    position: sticky;
+    top: 0;
+}
+.menu > a{
+    margin-right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+.menu + div{
+    text-align: center;
+    font-size: 100px;
+    margin-top: 50px;
+    height: 2000px;
+}
+div:last-child{
+    background: yellow;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+

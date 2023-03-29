@@ -1,0 +1,45 @@
+<script src="react.development.js"></script>
+<script src="babel.min.js"></script>
+<script src="react-dom.development.js"></script>
+
+<div id="root"></div>
+
+<style>
+
+</style>
+
+<script type="text/babel">
+
+    const App = () => {
+        const no1Ref = React.useRef()
+        const resRef = React.useRef()
+
+        const isEven = () => {
+            let n1 = no1Ref.current.value
+
+            let isEven = parseInt(n1) % 2 === 0
+
+            resRef.current.innerText = isEven
+
+
+
+        }
+
+        return <div>
+            <p>
+                <b>No1:</b><input ref={no1Ref} />
+            </p>
+            <p>
+                <button onClick={isEven}>Check</button>
+            </p>
+
+            <h1>Result : <span ref={resRef}></span> </h1>
+        </div>
+    }
+
+    var container = ReactDOM.createRoot(document.getElementById('root'))
+
+    // render content inside the container 
+
+    container.render(<App />)
+</script>

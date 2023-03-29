@@ -1,0 +1,67 @@
+<script src="babel.min.js"></script>
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+
+
+
+<div id="root"></div>
+
+<style>
+
+</style>
+
+<script type="text/babel">
+    // prepare content 
+
+    const App = () => {
+        const data =
+            [
+                {
+                    name: 'Sachin',
+                    runs: 20000,
+                },
+                {
+                    name: 'Dhoni',
+                    runs: 10000,
+                },
+                {
+                    name: 'kohli',
+                    runs: 15000,
+                },
+                {
+                    name: 'uv',
+                    runs: 9000,
+                },
+            ]
+
+        return <table border='2px'>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Runs</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    data.map((obj, ind) => {
+                        const { name, runs } = obj;
+                        return <tr>
+                            <td>{name}</td>
+                            <td>{runs}</td>
+                        </tr>
+                    })
+                }
+            </tbody>
+        </table>
+
+
+    }
+
+
+    //container reference 
+    var container = ReactDOM.createRoot(document.getElementById('root'))
+
+    // render content inside the container 
+
+    container.render(<App />)
+</script>

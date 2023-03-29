@@ -1,0 +1,78 @@
+<script src="react.development.js"></script>
+<script src="babel.min.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="axios.min.js"></script>
+<div id="root"></div>
+
+<style>
+
+</style>
+
+<script type="text/babel">
+    // prepare content 
+    const Table = (props) => {
+        const { headers, data, columns } = props
+        return <table border='2px'>
+            <thead>
+                <tr>
+                    {
+                        headers.map((v, i) => {
+                            return <th key={i}>{v}</th>
+                        })
+                    }
+                </tr>
+            </thead>
+
+            <tbody>
+                {
+                    data.map((obj, ind) => {
+                        return <tr key={ind}>
+                            {columns.map((col, i) => {
+                                return <td key={i}>{obj[col]}</td>
+                            })}
+
+                        </tr>
+                    })
+                }
+            </tbody>
+        </table>
+    }
+    const App = () => {
+
+        const [data, setData] = React.useState([])
+
+        const fnGetComents = async () => {
+            const res = await axios.get('https://jsonplaceholder.typicode.com/comments')
+            setData(res.data)
+            // axios.get('https://jsonplaceholder.typicode.com/comments')
+            //     .then((res) => {
+            //          setData(res.data)
+            //    })
+            //   .catch((res) => {
+            //      console.log(res)
+            // })
+        }
+
+
+        return <div>
+            <h1>Axios</h1>
+            <div>
+                <p>
+                    <button onClick={fnGetComents}>Get Comments</button>
+
+                </p>
+                {
+                    data.length > 0 ? <Table headers={['User Name', 'Email', 'BODY',]} data={data} columns={['name', 'email', 'body']} /> : <h3> No Data </h3>
+                }
+            </div>
+        </div>
+    }
+
+
+    //container reference 
+    var container = ReactDOM.createRoot(document.getElementById('root'))
+
+    // render content inside the container 
+
+    container.render(<App />)
+</script>

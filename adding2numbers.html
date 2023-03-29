@@ -1,0 +1,109 @@
+<script src="react.development.js"></script>
+<script src="babel.min.js"></script>
+<script src="react-dom.development.js"></script>
+
+<div id="root"></div>
+
+<style>
+
+</style>
+
+<script type="text/babel">
+
+    const App = () => {
+        const no1Ref = React.useRef()
+        const no2Ref = React.useRef()
+        const resRef = React.useRef()
+
+        const sum = () => {
+            let n1 = no1Ref.current.value
+            let n2 = no2Ref.current.value
+            if (isNaN(n1)) {
+                alert('Please Enter Valid N0 1')
+                return
+            }
+            if (isNaN(n2)) {
+                alert('Please Enter VAlid No 2')
+                return
+            }
+
+            let sum = parseInt(n1) + parseInt(n2)
+            resRef.current.innerText = sum
+
+
+        }
+
+        const sub = () => {
+            let n1 = no1Ref.current.value
+            let n2 = no2Ref.current.value
+            if (isNaN(n1)) {
+                alert('Please Enter Valid N0 1')
+                return
+            }
+            if (isNaN(n2)) {
+                alert('Please Enter VAlid No 2')
+                return
+            }
+
+            let sub = parseInt(n1) - parseInt(n2)
+            resRef.current.innerText = sub
+        }
+
+        const mul = () => {
+            let n1 = no1Ref.current.value
+            let n2 = no2Ref.current.value
+            if (isNaN(n1)) {
+                alert('Please Enter Valid N0 1')
+                return
+            }
+            if (isNaN(n2)) {
+                alert('Please Enter VAlid No 2')
+                return
+            }
+
+            let mul = parseInt(n1) * parseInt(n2)
+            resRef.current.innerText = mul
+        }
+
+        const division = () => {
+            let n1 = no1Ref.current.value
+            let n2 = no2Ref.current.value
+            if (isNaN(n1)) {
+                alert('Please Enter Valid N0 1')
+                return
+            }
+            if (isNaN(n2)) {
+                alert('Please Enter VAlid No 2')
+                return
+            }
+
+            let division = parseInt(n1) / parseInt(n2)
+            resRef.current.innerText = division
+        }
+
+
+
+        return <div>
+            <p>
+                <b>No1:</b><input ref={no1Ref} />
+            </p>
+            <p>
+                <b>No2:</b><input ref={no2Ref} />
+            </p>
+            <p>
+                <button onClick={sum}>Sum</button>
+                <span><button onClick={sub}>Sub</button></span>
+                <span><button onClick={mul}>Multiply</button></span>
+                <span><button onClick={division}>Division</button></span>
+            </p>
+
+            <h1>Result : <span ref={resRef}></span> </h1>
+        </div>
+    }
+
+    var container = ReactDOM.createRoot(document.getElementById('root'))
+
+    // render content inside the container 
+
+    container.render(<App />)
+</script>
